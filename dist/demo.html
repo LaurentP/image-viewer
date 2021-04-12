@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Viewer</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+            background: #fff;
+            color: #333;
+        }
+
+        h1 {
+            margin: 0;
+            text-align: center;
+            line-height: 3;
+            font-weight: normal;
+        }
+
+        .gallery {
+            list-style-type: none;
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .gallery > .image-viewer-item {
+            width: 300px;
+            height: 300px;
+            margin: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 300ms;
+        }
+
+        .gallery > .image-viewer-item:hover {
+            cursor: pointer;
+            opacity: .75;
+        }
+
+        .gallery > .image-viewer-item > img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Image Viewer</h1>
+
+    <ul class="gallery">
+        <li class="image-viewer-item"><img src="./img/photo-1.jpg" alt="Eiffel Tower, Paris"></li>
+        <li class="image-viewer-item"><img src="./img/photo-2.jpg" alt="Arc de Triomphe, Paris"></li>
+        <li class="image-viewer-item"><img src="./img/photo-3.jpg" alt="Montmartre, Paris"></li>
+        <li class="image-viewer-item"><img src="./img/photo-4.jpg" alt="Notre-Dame de Paris, Paris"></li>
+        <li class="image-viewer-item"><img src="./img/photo-5.jpg" alt="Mont-Saint-Michel, Normandie"></li>
+        <li class="image-viewer-item"><img src="./img/photo-6.jpg" alt="Place Stanislas, Nancy"></li>
+    </ul>
+
+    <script src="./image-viewer.js"></script>
+</body>
+
+</html>
