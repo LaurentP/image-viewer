@@ -20,6 +20,21 @@ window.addEventListener('DOMContentLoaded', () => {
     let imageViewerParams = { src: [], current: -1 }
 
     const imageViewerChange = () => {
+
+        if (imageViewerParams.current === 0) {
+            document.querySelector('.image-viewer-prev').setAttribute('style', 'display: none')
+        }
+        else {
+            document.querySelector('.image-viewer-prev').setAttribute('style', 'display: block')
+        }
+
+        if (imageViewerParams.current === (imageViewerItems.length - 1)) {
+            document.querySelector('.image-viewer-next').setAttribute('style', 'display: none')
+        }
+        else {
+            document.querySelector('.image-viewer-next').setAttribute('style', 'display: block')
+        }
+
         imageViewerZoom.querySelector('img').src = imageViewerParams.src[imageViewerParams.current]
     }
 
@@ -50,6 +65,10 @@ window.addEventListener('DOMContentLoaded', () => {
         imageViewerItems[i].addEventListener('click', () => imageViewerShow(i))
     }
 
+    imageViewerZoom.addEventListener('click', e => {
+        if (e.target === imageViewerZoom) imageViewerClose()
+    })
+
     document.querySelector('.image-viewer-close').addEventListener('click', () => imageViewerClose())
 
     if (imageViewerItems.length > 1) {
@@ -62,5 +81,14 @@ window.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.image-viewer-prev').addEventListener('click', () => imageViewerPrev())
 
         document.querySelector('.image-viewer-next').addEventListener('click', () => imageViewerNext())
+
+        document.addEventListener('keydown', e => {
+            if (/left/i.test(e.key)) {
+                imageViewerPrev()
+            }
+            else if (/right/i.test(e.key)) {
+                imageViewerNext()
+            }
+        })
     }
 })

@@ -16,6 +16,7 @@
     justify-content: center;
     align-items: center;
     position: fixed;
+    z-index: 10;
     top: 0;
     left: 0;
     width: 100%;
@@ -36,11 +37,16 @@
     margin: 0;
     padding: 0;
     background: none;
-    color: #fff;
+    color: rgba(255, 255, 255, .5);
     border: none;
-    text-shadow: 0 0 8px #000;
+    text-shadow: 0 0 8px rgba(0, 0, 0, .5);
     cursor: pointer;
     outline: none;
+    transition: 300ms;
+}
+
+.image-viewer > .image-viewer-close:hover, .image-viewer > .image-viewer-prev:hover, .image-viewer > .image-viewer-next:hover {
+    color: #fff;
 }
 
 .image-viewer > .image-viewer-close {
