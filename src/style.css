@@ -7,6 +7,10 @@
     }
 }
 
+.image-viewer-item {
+    cursor: pointer;
+}
+
 .image-viewer {
     display: none;
 }

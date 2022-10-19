@@ -21,18 +21,25 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const imageViewerChange = () => {
 
-        if (imageViewerParams.current === 0) {
-            document.querySelector('.image-viewer-prev').setAttribute('style', 'display: none')
-        }
-        else {
-            document.querySelector('.image-viewer-prev').setAttribute('style', 'display: block')
+        const imageViewerPrevBtn = document.querySelector('.image-viewer-prev')
+        const imageViewerNextBtn = document.querySelector('.image-viewer-next')
+
+        if (imageViewerPrevBtn) {
+            if (imageViewerParams.current === 0) {
+                imageViewerPrevBtn.setAttribute('style', 'display: none')
+            }
+            else {
+                imageViewerPrevBtn.setAttribute('style', 'display: block')
+            }
         }
 
-        if (imageViewerParams.current === (imageViewerItems.length - 1)) {
-            document.querySelector('.image-viewer-next').setAttribute('style', 'display: none')
-        }
-        else {
-            document.querySelector('.image-viewer-next').setAttribute('style', 'display: block')
+        if (imageViewerNextBtn) {
+            if (imageViewerParams.current === (imageViewerItems.length - 1)) {
+                imageViewerNextBtn.setAttribute('style', 'display: none')
+            }
+            else {
+                imageViewerNextBtn.setAttribute('style', 'display: block')
+            }
         }
 
         imageViewerZoom.querySelector('img').src = imageViewerParams.src[imageViewerParams.current]
