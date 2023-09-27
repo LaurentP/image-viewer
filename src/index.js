@@ -10,7 +10,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     document.body.insertAdjacentHTML('beforeend', `
         <div class="image-viewer">
-            <img src="#" alt="">
             <button class="image-viewer-close">&times;</button>
         </div>
     `)
@@ -20,6 +19,15 @@ window.addEventListener('DOMContentLoaded', () => {
     let imageViewerParams = { src: [], current: -1 }
 
     const imageViewerChange = () => {
+
+        if (imageViewerZoom.querySelector('img')) {
+            imageViewerZoom.removeChild(imageViewerZoom.querySelector('img'))
+        }
+
+        const loader = document.createElement('div')
+        loader.classList.add('image-viewer-loader')
+
+        imageViewerZoom.appendChild(loader)
 
         const imageViewerPrevBtn = document.querySelector('.image-viewer-prev')
         const imageViewerNextBtn = document.querySelector('.image-viewer-next')
@@ -42,7 +50,14 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        imageViewerZoom.querySelector('img').src = imageViewerParams.src[imageViewerParams.current]
+        const img = new Image()
+
+        img.addEventListener('load', () => {
+            imageViewerZoom.removeChild(loader)
+            imageViewerZoom.appendChild(img)
+        })
+
+        img.src = imageViewerParams.src[imageViewerParams.current]
     }
 
     const imageViewerShow = index => {
@@ -68,8 +83,25 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     for (let i = 0; i < imageViewerItems.length; i++) {
-        imageViewerParams.src.push(imageViewerItems[i].querySelector('img').src)
-        imageViewerItems[i].addEventListener('click', () => imageViewerShow(i))
+
+        const loader = document.createElement('div')
+        loader.classList.add('image-viewer-loader')
+
+        imageViewerItems[i].appendChild(loader)
+
+        const img = new Image()
+
+        img.addEventListener('load', () => {
+            imageViewerItems[i].removeChild(loader)
+            imageViewerItems[i].appendChild(img)
+        })
+
+        img.src = imageViewerItems[i].dataset.src
+        img.alt = imageViewerItems[i].dataset.alt
+
+        imageViewerParams.src.push(imageViewerItems[i].dataset.src)
+
+        img.addEventListener('click', () => imageViewerShow(i))
     }
 
     imageViewerZoom.addEventListener('click', e => {

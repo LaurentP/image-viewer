@@ -1,36 +1,30 @@
 # Image Viewer
 
-C'est une visionneuse d'images en JavaScript qui permet également la navigation entre chaque élément associé.
+C'est une visionneuse d'images en JavaScript légère et performante, simple d'utilisation, n'utilisant pas de librairie additionnelle, et pouvant être intégrée dans tout type de projet. Celle-ci permet également la navigation entre chaque élément associé. Les images se chargent en différé, ce qui permet d'optimiser les performances de la page web concernée.
 
 ![Screenshot](/screenshot.png)
 
 ## Utilisation
 
-Il suffit de lier le fichier image-viewer.js dans votre code HTML afin de l'utiliser. Il n'y a pas de fichier CSS nécessaire, tout est dans le fichier JavaScript compilé.
+Le fichier JavaScript nécessaire et prêt à l'utilisation se trouve dans le dossier dist. Après l'avoir copié et collé dans un nouveau projet, il doit être inclut juste avant la fermeture du body :
 
-Aucun type de balise particulier n'est obligatoire. Seulement la classe .image-viewer-item doit être correctement associée à la balise qui entoure l'image.
+```html
+<script src="./image-viewer.js"></script>
+```
 
 Exemple pour une seule image :
 
 ```html
-<div class="image-viewer-item">
-    <img src="./img/photo.jpg" alt="Photo">
-</div>
+<div class="image-viewer-item" data-src="./img/photo.jpg" data-alt="Photo"></div>
 ```
 
 Exemple pour plusieurs images :
 
 ```html
 <ul>
-    <li class="image-viewer-item">
-        <img src="./img/photo-1.jpg" alt="Photo 1">
-    </li>
-    <li class="image-viewer-item">
-        <img src="./img/photo-2.jpg" alt="Photo 2">
-    </li>
-    <li class="image-viewer-item">
-        <img src="./img/photo-3.jpg" alt="Photo 3">
-    </li>
+    <li class="image-viewer-item" data-src="./img/photo-1.jpg" data-alt="Photo 1"></li>
+    <li class="image-viewer-item" data-src="./img/photo-2.jpg" data-alt="Photo 2"></li>
+    <li class="image-viewer-item" data-src="./img/photo-3.jpg" data-alt="Photo 3"></li>
 </ul>
 ```
 

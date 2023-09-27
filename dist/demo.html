@@ -40,10 +40,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        .gallery > .image-viewer-item > img {
             transition: opacity 300ms;
         }
 
-        .gallery > .image-viewer-item:hover {
+        .gallery > .image-viewer-item > img:hover {
             cursor: pointer;
             opacity: .75;
         }
@@ -60,12 +63,12 @@
     <h1>Image Viewer</h1>
 
     <ul class="gallery">
-        <li class="image-viewer-item"><img src="./img/photo-1.jpg" alt="Eiffel Tower, Paris"></li>
-        <li class="image-viewer-item"><img src="./img/photo-2.jpg" alt="Arc de Triomphe, Paris"></li>
-        <li class="image-viewer-item"><img src="./img/photo-3.jpg" alt="Montmartre, Paris"></li>
-        <li class="image-viewer-item"><img src="./img/photo-4.jpg" alt="Notre-Dame de Paris, Paris"></li>
-        <li class="image-viewer-item"><img src="./img/photo-5.jpg" alt="Mont-Saint-Michel, Normandie"></li>
-        <li class="image-viewer-item"><img src="./img/photo-6.jpg" alt="Place Stanislas, Nancy"></li>
+        <li class="image-viewer-item" data-src="./img/photo-1.jpg" data-alt="Eiffel Tower, Paris"></li>
+        <li class="image-viewer-item" data-src="./img/photo-2.jpg" data-alt="Arc de Triomphe, Paris"></li>
+        <li class="image-viewer-item" data-src="./img/photo-3.jpg" data-alt="Montmartre, Paris"></li>
+        <li class="image-viewer-item" data-src="./img/photo-4.jpg" data-alt="Notre-Dame de Paris, Paris"></li>
+        <li class="image-viewer-item" data-src="./img/photo-5.jpg" data-alt="Mont-Saint-Michel, Normandie"></li>
+        <li class="image-viewer-item" data-src="./img/photo-6.jpg" data-alt="Place Stanislas, Nancy"></li>
     </ul>
 
     <script src="./image-viewer.js"></script>
